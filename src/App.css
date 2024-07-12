@@ -1,38 +1,480 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Outfit", sans-serif;
+}
+
+:root {
+  --background: #F6E6CB;
+  --logoMen: #B6C7AA;
+  --groundLetterbase: #A0937D;
+  --letterBackground: #E7D4B5;
+  --settingsBackgroundStroke: #758694;
+  --nailFill: #405D72;
+}
+
+body {
+  background-color: var(--background);
+  display: flex;
+  justify-content: center;
+}
+
 .App {
+  width: 1200px;
+  height: 100vh;
+}
+
+nav {
+  height: 15%;
+}
+
+h1 {
+  color: var(--logoMen);
+  font-size: 64px;
+}
+
+@media (max-width: 1200px) {
+  #root {
+    width: 100%;
+  }
+
+  .App {
+    width: 100%;
+  }
+
+  .top {
+    margin-left: 20% !important;
+  }
+
+  .middleLong {
+    margin-left: 20% !important;
+  }
+
+  .middleShort {
+    left: calc(20% + 200px) !important;
+  }
+
+  .man {
+    left: calc(20% + 200px) !important;
+  }
+
+  .letterToGuessContainer {
+    width: 50px !important;
+    font-size: 38px !important;
+  }
+
+  .keyboard {
+    width: 100% !important;
+    gap: 5px !important;
+  }
+
+  .letter {
+    width: 60px !important;
+    height: 60px !important;
+    font-size: 38px !important;
+  }
+
+  .start-wrapper button {
+    width: 100% !important;
+    background-color: transparent !important;
+    border-radius: 0 !important;
+  }
+}
+
+/*
+Stage
+*/
+
+.stage {
+  height: 45%;
+  position: relative;
+}
+
+.top {
+  width: 200px;
+  height: 10px;
+  background-color: var(--groundLetterbase);
+  margin-left: 400px;
+}
+
+.middleLong {
+  width: 10px;
+  height: 80%;
+  background-color: var(--groundLetterbase);
+  margin-left: 400px;
+}
+
+.middleShort {
+  width: 10px;
+  height: 20%;
+  background-color: var(--groundLetterbase);
+  position: absolute;
+  top: 0;
+  left: 600px;
+}
+
+.bottom {
+  width: 100%;
+  height: 10px;
+  background-color: var(--groundLetterbase);
+  border-radius: 15px;
+}
+
+/*
+Man
+*/
+
+.man {
+  width: 200px;
+  height: 250px;
+  position: absolute;
+  top: calc(20% - 15px);
+  left: 600px;
+  transform: translateX(-50%);
+}
+
+.head {
+  width: 50px;
+  height: 50px;
+  background-color: var(--logoMen);
+  border-radius: 50%;
+  position: absolute;
+  left: calc(50% + 5px);
+  transform: translateX(-50%);
+  visibility: hidden;
+}
+
+.torso {
+  width: 10px;
+  height: 100px;
+  background-color: var(--logoMen);
+  position: absolute;
+  top: 50px;
+  left: calc(50% + 5px);
+  transform: translateX(-50%);
+  visibility: hidden;
+}
+
+.leftArm {
+  width: 10px;
+  height: 75px;
+  background-color: var(--logoMen);
+  position: absolute;
+  top: 20px;
+  left: calc(50% + 5px);
+  transform: translateX(-50%);
+  rotate: -45deg;
+  transform-origin: bottom left 5px;
+  visibility: hidden;
+}
+
+.rightArm {
+  width: 10px;
+  height: 75px;
+  background-color: var(--logoMen);
+  position: absolute;
+  top: 20px;
+  left: calc(50% + 5px);
+  transform: translateX(-50%);
+  rotate: 45deg;
+  transform-origin: bottom left -5px;
+  visibility: hidden;
+}
+
+.leftLeg {
+  width: 10px;
+  height: 75px;
+  background-color: var(--logoMen);
+  position: absolute;
+  top: 150px;
+  left: calc(50% + 5px);
+  transform: translateX(-50%);
+  rotate: -30deg;
+  transform-origin: top left 5px;
+  visibility: hidden;
+}
+
+.rightLeg {
+  width: 10px;
+  height: 75px;
+  background-color: var(--logoMen);
+  position: absolute;
+  top: 150px;
+  left: calc(50% + 5px);
+  transform: translateX(-50%);
+  rotate: 30deg;
+  transform-origin: top left -5px;
+  visibility: hidden;
+}
+
+.guessedWrong {
+  visibility: visible !important;
+}
+
+/*
+WordToGuess
+*/
+
+.wordToGuessContainer {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.letterToGuessContainer {
+  width: 75px;
+  font-size: 48px;
+  font-weight: 500;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.letterToGuess {
+  visibility: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.guessed {
+  visibility: visible !important;
+}
+
+.not-guessed {
+  visibility: visible !important;
+  color: red;
+}
+
+.letterBottom {
+  width: 100%;
+  height: 10px;
+  background-color: var(--groundLetterbase);
+  border-radius: 15px;
+}
+
+#btn-play-again {
+  width: 120px;
+  height: 80px;
+  background-color: var(--letterBackground);
+  border: none;
+  border-radius: 15px;
+  outline: none;
+  font-size: 20px;
+  margin-top: 50px;
+  cursor: pointer;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
+  &:hover {
+    filter: brightness(120%);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*
+Keyboard
+*/
+
+.keyboard {
+  width: 1000px;
+  margin: 0 auto;
+  padding-top: 15px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.letter {
+  width: 75px;
+  height: 75px;
+  font-size: 48px;
+  background-color: var(--letterBackground);
+  border-radius: 15px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  cursor: pointer;
+  transition: 0.4s;
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  &:hover:not(.disabled) {
+    filter: brightness(120%);
   }
-  to {
-    transform: rotate(360deg);
+}
+
+.disabled {
+  opacity: 20%;
+  cursor: initial;
+}
+
+/*
+Start
+*/
+
+.startContainer {
+  width: 350px;
+  height: 180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: 'start start start start'
+                        'settings rules rules rules';
+  gap: 15px;
+}
+
+.startContainer button {
+  background-color: var(--letterBackground);
+  color: var(--groundLetterbase);
+  border: none;
+  border-radius: 15px;
+  outline: none;
+  font-size: 42px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.4s;
+
+  &:hover {
+    filter: brightness(120%);
+  }
+}
+
+#btn-startGame {
+  grid-area: start;
+}
+
+#btn-settings {
+  background-color: var(--settingsBackgroundStroke);
+  color: white;
+  grid-area: settings;
+}
+
+#btn-rules {
+  grid-area: rules;
+}
+
+.background-dark {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+  transition: 0.4s;
+}
+
+.background-dark.background-dark-active {
+  transform: translateY(0);
+}
+
+.start-window-container {
+  width: 650px;
+  height: 450px;
+  background-color: var(--letterBackground);
+  border: 5px solid var(--groundLetterbase);
+  border-radius: 15px;
+  box-shadow: inset 0 0 20px var(--groundLetterbase);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#start-window-close {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  color: var(--groundLetterbase);
+  border-bottom-left-radius: 15px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  
+  &:hover {
+    color: red;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.start-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.start-wrapper button {
+  width: 400px;
+  height: 100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.language-select {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  overflow: hidden;
+}
+
+.language-select label {
+  color: var(--groundLetterbase);
+  font-size: 24px;
+}
+
+.language-select select {
+  height: 50px;
+  border: none;
+  border-radius: 15px;
+  outline: none;
+  font-size: 20px;
+}
+
+.rules-wrapper {
+  width: 80%;
+  font-size: 20px;
+  color: var(--groundLetterbase);
+}
+
+.type-container {
+  border: 2px solid var(--groundLetterbase);
+  border-radius: 15px;
+  display: flex;
+  position: absolute;
+  bottom: -10%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  transition: 0.4s;
+  overflow: hidden;
+}
+
+.type-container.active {
+  bottom: 10%;
+}
+
+.type-container input {
+  height: 45px;
+  background-color: var(--background);
+  padding: 0 10px;
+  font-size: 20px;
+  border: none;
+  outline: none;
+}
+
+#btn-word {
+  background-color: var(--groundLetterbase);
+  scale: 1.1;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(120%);
   }
 }
