@@ -82,6 +82,10 @@ h1 {
     background-color: transparent !important;
     border-radius: 0 !important;
   }
+
+  .type-container {
+    width: 95% !important;
+  }
 }
 
 /*
