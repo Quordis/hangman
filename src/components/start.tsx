@@ -28,11 +28,19 @@ export default function Start(props: any) {
         document.getElementsByClassName('background-dark')[0].classList.remove('background-dark-active');
     }
 
+    function getRandomWord() {
+        randomWord().then((word) => {
+            props.sendWordToParent(word)
+        }).catch((err) => {
+            console.error(err);
+        });
+    }
+
     function handleGameType(e: any) {
         switch (e.target.getAttribute('id')) {
             case 'btn-random-word':
                 setGameType('random');
-                props.sendWordToParent(randomWord);
+                getRandomWord()
                 break;
             case 'btn-type-word':
                 setGameType('type');
