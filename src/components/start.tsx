@@ -88,6 +88,7 @@ export default function Start(props: any) {
                             <option value="polish">Polski</option>
                         </select>
                         <button>Save</button>
+                        <div className="language-workip">Work in progress</div>
                     </div>}
                     {page === "rules" &&
                     <div className="rules-wrapper">

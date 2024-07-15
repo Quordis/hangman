@@ -88,6 +88,69 @@ h1 {
   }
 }
 
+@media (max-width: 600px) {
+  .stage {
+    height: 35% !important;
+  }
+
+  .top {
+    width: 150px !important;
+  }
+
+  .middleShort {
+    left: calc(20% + 150px) !important;
+  }
+
+  .man {
+    left: calc(20% + 150px) !important;
+  }
+
+  .head {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .torso {
+    height: 80px !important;
+    top: 40px !important;
+  }
+
+  .leftArm {
+    height: 60px !important;
+  }
+
+  .rightArm {
+    height: 60px !important;
+  }
+
+  .leftLeg {
+    height: 60px !important;
+    top: 118px !important;
+  }
+
+  .rightLeg {
+    height: 60px !important;
+    top: 118px !important;
+  }
+
+  .wordToGuessContainer {
+    gap: 10px !important;
+  }
+
+  .letterToGuessContainer {
+    width: 40px !important;
+    font-size: 1.5em !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .letter {
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 2em !important;
+  }
+}
+
 /*
 Stage
 */
@@ -193,7 +256,7 @@ Man
   height: 75px;
   background-color: var(--logoMen);
   position: absolute;
-  top: 150px;
+  top: 148px;
   left: calc(50% + 5px);
   transform: translateX(-50%);
   rotate: -30deg;
@@ -206,7 +269,7 @@ Man
   height: 75px;
   background-color: var(--logoMen);
   position: absolute;
-  top: 150px;
+  top: 148px;
   left: calc(50% + 5px);
   transform: translateX(-50%);
   rotate: 30deg;
@@ -440,6 +503,18 @@ Start
   border-radius: 15px;
   outline: none;
   font-size: 20px;
+}
+
+.language-workip {
+  height: 50px;
+  margin-top: 15px;
+  background-color: rgba(255, 0, 0, 0.2);
+  border: 2px solid rgba(255, 0, 0, 0.4);
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .rules-wrapper {
