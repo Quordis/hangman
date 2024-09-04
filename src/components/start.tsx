@@ -59,7 +59,7 @@ export default function Start(props: any) {
 
     function getTypedWord(e: any) {
         e.preventDefault();
-        if (inputValue.length >=10) return alert("Length of the word cannot be higher than 10 characters")
+        if (inputValue.length >10) return alert("Word length must not exceed 10 characters")
         props.sendWordToParent(inputValue);
     }
 
@@ -76,7 +76,7 @@ export default function Start(props: any) {
                         <button id="btn-random-word" onClick={handleGameType}>Random word</button>
                         <button id="btn-type-word" onClick={handleGameType}>Type a word</button>
                         <form className="type-container">
-                            <input type="text" id="type" name="type" value={inputValue} onChange={handleInputChange}/>
+                            <input type="text" id="type" name="type" value={inputValue} maxLength={10} onChange={handleInputChange}/>
                             <input type="submit" value="Play" id="btn-word" onClick={getTypedWord}/>
                         </form>
                     </div>}
