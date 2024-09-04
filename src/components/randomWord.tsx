@@ -3,7 +3,7 @@ export default async function randomWord(): Promise<string> {
     try {
         const response = await fetch('./wordlist.json');
         const json = await response.json();
-        const filtered = json.filter((word: any) => word.length <= 10);
+        const filtered = json.filter((word: any) => word.length < 10);
         const randomNumber = Math.floor(Math.random() * filtered.length);
         resoult = filtered[randomNumber];
     } catch (err) {
